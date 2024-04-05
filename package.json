@@ -1,7 +1,7 @@
 {
   "name": "@benhepburn/adonis-sentry",
   "description": "A Sentry integration for AdonisJS v6",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "node": ">=20.0.0"
   },
