@@ -43,13 +43,17 @@ Import the service to use it:
 import sentry from "@benhepburn/adonis-sentry/service"
 ```
 
-To capture all exceptions, add this line to app/exceptions/handler inside the handle function:
+To capture all exceptions, add the capture line to app/exceptions/handler.ts inside the report function:
 
 ```ts
-sentry.captureException(error);
+async report(error: unknown, ctx: HttpContext) {
+  sentry.captureException(error); // Add this line
+  ...
+  return super.report(error, ctx);
+}
 ```
 
-This can be used to capture exceptions manually as well:
+Exceptions can be captured manually as well:
 
 ```ts
 try {
