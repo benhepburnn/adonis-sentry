@@ -14,6 +14,7 @@
   ],
   "exports": {
     ".": "./build/index.js",
+    "./sentry_provider": "./build/providers/sentry_provider.js",
     "./service": "./build/services/main.js"
   },
   "scripts": {

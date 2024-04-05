@@ -39,4 +39,14 @@ export async function configure(_command: ConfigureCommand) {
     console.error('Unable to define env variables/validations')
     console.error(error)
   }
+
+  // Add service to rc file
+  try {
+    await codemods.updateRcFile((rcFile) => {
+      rcFile.addProvider('@benhepburn/adonis-sentry/sentry_provider')
+    })
+  } catch (error) {
+    console.error('Unable to update adonisrc.ts file')
+    console.error(error)
+  }
 }
