@@ -1,6 +1,7 @@
 import type { ApplicationService } from '@adonisjs/core/types'
 import * as Sentry from '@sentry/node'
 import { NodeOptions } from '@sentry/node'
+import { adonisEventProcessor } from '../src/adonis_event_processor.js'
 
 export default class SentryProvider {
   constructor(protected app: ApplicationService) {}
@@ -14,6 +15,7 @@ export default class SentryProvider {
       const sentryConfig = config.get('sentry') as NodeOptions
 
       Sentry.init(sentryConfig)
+      Sentry.addEventProcessor(adonisEventProcessor)
 
       return Sentry
     })
