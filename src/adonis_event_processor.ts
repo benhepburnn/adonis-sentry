@@ -5,16 +5,12 @@ export const adonisEventProcessor: EventProcessor = (event, _hint) => {
   const ctx = HttpContext.get()
   if (!ctx) return event
 
-  let body: Record<string, any> | undefined = ctx.request.body()
-  if (JSON.stringify(body).length > 2000) body = undefined
-
   if (!event.contexts) event.contexts = {}
 
   // Add request data
   event.request = {
     method: ctx.request.method(),
     url: ctx.request.url(true),
-    data: body,
   }
 
   // Add response data
