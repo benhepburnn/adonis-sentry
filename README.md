@@ -35,6 +35,13 @@ SENTRY_DSN=https://<...>.sentry.io/<...>
 SENTRY_TRACES_SAMPLE_RATE=1.0 # Set this to a lower value in production
 ```
 
+To enable enhanced event data, you must enable useAsyncLocalStorage in config/app.ts 
+so the current request can be fetched ([see caveats here](https://docs.adonisjs.com/guides/async-local-storage#caveats)):
+
+```ts
+useAsyncLocalStorage: true,
+```
+
 ## Usage
 
 Import the service to use it:
